@@ -1,15 +1,39 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import Labs from './components/Labs';
+import NotFound from './components/NotFound';
+import About from './components/About';
+import Support from './components/Support';
 
 function App() {
   return (
     <div className="App">
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+          <li>
+            <NavLink to="/support">Support</NavLink>
+          </li>
+          <li>
+            <NavLink to="/labs">Labs</NavLink>
+          </li>
+          <li>
+            <NavLink to="*">Not Found</NavLink>
+          </li>
+        </ul>
+      </nav>
       <Routes>
-        <Route path="/" element={<div>Home Page Hai</div>}/>
-        <Route path="/support" element={<div>Support Page Hai</div>}/>
-        <Route path="/about" element={<div>About Page Hai</div>}/>
-        <Route path="/labs" element={<div>Labs Page Hai</div>}/>
-        <Route path="*" element={<div>Not Found Page</div>}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/support" element={<Support/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/labs" element={<Labs/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
   );
